@@ -94,15 +94,15 @@
             </div>
             <hr>
             <div class="span-3-of-3">
-                <div class="row">
+                <div class="row notes">
                     <p><ion-icon name="alert-circle-outline"></ion-icon>Add the items to the cart and book now</p>
                 </div>
             </div>
         </div>
         <div class="service-price-2 span-2-of-2">
-            <div class="table-card">
-
-                <table class="table">
+            <div class="service-price span-1-of-2">
+                <table class="table-card service-price table-1">
+                    <caption class="caption">Add Items</caption>
                     <thead>
                         <tr>
                             <th>S.No</th>
@@ -110,39 +110,30 @@
                             <th>Price</th>
                         </tr>
                     </thead>
-                </table>
-
-                <div class="table-body">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Dry Cleaning</td>
-                                <td>₹200</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Ironing</td>
-                                <td>₹30</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Leather Cleaning</td>
-                                <td>₹999</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Dry Cleaning</td>
+                            <td>₹200</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Ironing</td>
+                            <td>₹30</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Leather Cleaning</td>
+                            <td>₹999</td>
+                        </tr>
+                    </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="2">Total Amount</td>
-                            <td>₹1229</td>
+                            <td>₹ 1229.00</td>
                         </tr>
                     </tfoot>
                 </table>
-
             </div>
             <div class="list service-price span-2-of-2">
                 <div class="row">
@@ -150,14 +141,18 @@
                 </div>
                 <form action="">
                     <div class="fullname">
-                        <label for="name">Full Name</label>
+                        <label for="name">Full Name</label><br>
                         <input type="text" id="name" placeholder="John Doe">
                     </div>
                     <div class="contact-details">
-                        <label for="email">Email </label>
-                        <input type="email" id="email" placeholder="mailid@gmail.com">
-                        <label for="number">Phone Number</label>
-                        <input type="tel" id="phone" placeholder="0000000000">
+                        <div class="email fullname">
+                            <label for="email">Email </label><br>
+                            <input type="email" id="email" placeholder="mailid@gmail.com">
+                        </div>
+                        <div class="phone fullname">
+                            <label for="number">Phone Number</label><br>
+                            <input type="tel" id="phone" placeholder="0000000000">
+                        </div>
                     </div>
                     <div class="btn">
                         <button>Book now</button>
@@ -199,8 +194,8 @@
                 <input type="text" placeholder="Full name">
                 <input type="email" placeholder="Email">
             </div>
-            <div class="btn row">
-                <input type="submit" value="Subscribe" class="btn">
+            <div class="row">
+                <button class="btn">Subscribe</button>
             </div>
         </div>
     </section>
@@ -224,7 +219,7 @@
         </div>
         <div class="row ftabout">
             <h2>Contact</h2>
-            <div class="contact-details">
+            <div class="contact-details1">
                 <a href="email:mail@site.com">mail@site.com</a>
                 <a href="tel:+917895290732">+91 9999999999</a>
             </div>
