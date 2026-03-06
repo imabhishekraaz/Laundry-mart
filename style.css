@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root{
+    --primary-font:"Roboto", sans-serif;
+    --secondary-color:rgba(192, 247, 247, 0.7);
+    --primary-color:#1ab4ec;
+    --secondar--fontWeight: 400;
+    --margin-bottom:20px;
+}
+/* header section */
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8%;
+    align-items: center;
+}
+.logo h1{
+    font-size: 2.2rem;
+    font-family: var(--primary-font);
+    font-weight: 900;
+}
+.links{
+    display: flex;
+    gap: 30px;
+}
+.links a{
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #555;
+    font-family: var(--primary-font);
+    font-weight: var(--secondar--fontWeight);
+    position: relative;
+    padding: 5px;
+}
+/* apply a psuedo class on nav links  */
+.links a::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: block;
+    border-bottom: 2px solid var(--primary-color);
+    transition: transform 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+.links a:hover::before{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.username button{
+    width: 100px;
+    padding: 15px;
+    font-size: 1rem;
+    border: none;
+    font-family: var(--primary-font);
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+/* home section  */
+#home{
+    display: flex;
+    height: 70vh;
+    justify-content: space-evenly;
+   padding: 0px 150px;
+}.paragraph{
+    margin-top: 4rem;
+}
+.paragraph h1{
+    font-size: 3.2rem;
+    font-family: var(--primary-font);
+    margin-bottom: var(--margin-bottom);
+    color: #555;
+}
+.paragraph h1 span{
+    color: var(--primary-color);
+}
+.paragraph p{
+    margin-bottom: var(--margin-bottom);
+    font-family: var(--primary-font);
+    font-weight: var(--secondar--fontWeight);
+    width: 60%;
+}
+.paragraph button{
+    width: 50%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    font-size: 1rem;
+    font-family: var(--primary-font);
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+.achivement{
+    height: 20vh;
+    background-color: var(--primary-color);
+    ;
+    justify-content: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.row h1{
+    font-size: 2.2rem;
+    font-family: var(--primary-font);
+    color: #555;
+}
+.row p{
+    font-family: var(--primary-font);
+    font-weight: var(--secondar--fontWeight);
+    color: #555;
+}
+#service{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    
+    padding: 5rem 8%;
+    background-color: rgba(153, 153, 153,0.1);
+}
+.service-price{
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 20px;
+    box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.7);
+}
+.service-price .row{
+    margin: 20px;
+    line-height: 1.3;
+}
+.service-price hr{
+    width: 90%;
+    margin: 0px 20px 0px 25px;
+}
+.price-list{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 35px 0px 35px 0px;
+    margin-left: 30px;
+    font-family: var(--primary-font);
+}
+.price-list li{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 50px 0px 40px;
+}
+.price-list li span{
+    color: blue;
+    margin-left: 10px;
+}
+.price-list li button{
+    padding: 10px;
+    width: 25%;
+    background-color: rgba(0, 128, 0,0.1);
+    border: none;
+    border-radius: 10px;
+    color: green;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.service-price-2{
+    display: grid;
+
+}
+.row p {
+    display: flex;
+    gap: 10px;
+}
+.table-card{
+    width: 350px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+/* 
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+thead{
+    background: #f3f3f3;
+}
+
+.table-body{
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+tfoot{
+    background: #f7f7f7;
+    font-weight: bold;
+}
+.list{
+    background-color: white;
+    border-radius: 10px;
+    
+}
+.span-2-of-2 .span-1-of-2{
+    margin-bottom: 20px;
+} */
+
+#about {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 30px;
+    text-align: center;
+}
+#about .row{
+    margin: 20px;
+}
+#about .row h1{
+    margin-bottom: 10px;
+    font-size: 1.7rem;
+}
+.row img{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+#contact{
+    background-color: var(--primary-color);
+    height: 30vh;
+   display: grid;
+   grid-template-columns: 45% 55%;
+   align-items: center;
+}
+#contact .sub {
+    text-align: left;
+    margin-left: 10rem;
+}
+#contact .sub h1{
+     font-size: 2.3rem;
+    color: white;
+}
+.form .row{
+    display: flex;
+}
+.row input{
+    width: 40%;
+    margin: 0px 20px 30px 0px;
+    padding: 15px;
+    border: none;
+    color: white;
+    background-color: rgba(156, 211, 231,0.6);
+}
+.row .btn{
+    padding: 15px;
+    width: 40%;
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+.row input:focus{
+    border: none;
+    outline: none;
+}
+.footer{
+    background-color: rgba(153, 153, 153,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 35vh;
+    padding: 30px 50px 0px 50px;
+}
+.footer .row{
+    margin-right: 30px;
+    font-family: var(--primary-font);
+}
+.ftabout h1,h2{
+    margin-bottom: 30px;
+    color: #555;
+}
+.policy-links li{
+    list-style: none;
+    color: #555;
+    cursor: pointer;
+}
+.policy-links li:hover{
+    color: var(--primary-color);
+}
+.contact-details{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.contact-details a{
+    color: #555;
+    text-decoration: none;
+}
+.contact-details a:hover{
+    color: var(--primary-color);
+}
+.social-icons ion-icon{
+    width: 20px;
+    margin-right: 10px;
+    height: 20px;
+    cursor: pointer;
+}
+.social-icons ion-icon:hover{
+    color: var(--primary-color);
+}
