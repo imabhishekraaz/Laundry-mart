@@ -431,7 +431,7 @@ tfoot tr{
         display: none;
     }
     #home{
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 0px;
@@ -530,7 +530,7 @@ tfoot tr{
     margin-bottom: 20px;
 }
 .list{
-    height: 40vh;
+    height: 43vh;
 }
 #about{
     display: flex;
@@ -539,7 +539,7 @@ tfoot tr{
 #contact{
     display: flex;
     flex-direction: column;
-    height: 41vh;
+    height: 45vh;
     align-items: center;
 }
 #contact .sub {
@@ -566,7 +566,7 @@ tfoot tr{
 .footer{
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: 95vh;
 }
 .ftabout{
     margin-bottom: 20px;
