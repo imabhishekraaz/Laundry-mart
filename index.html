@@ -28,12 +28,12 @@
     <section id="home">
         <div class="span-1-of-2">
             <div class="paragraph">
-                <h1>Revitalize Your<br> Clothes with Export<br>
+                <h1>Revitalize Your<br> Clothes with Expert<br>
                     <span>Laundry Services</span>
                 </h1>
                 <p>From premium dry cleaning to swift wash and fold, we deliver care and convenience. Schedule a pickup
                     and rediscover the freshness of your clothes today!</p>
-                <button><ion-icon name="calendar-outline"></ion-icon>Book a service today!</button>
+                <button><ion-icon name="calendar-outline"></ion-icon><a href="#service">Book a service today!</a></button>
             </div>
         </div>
         <div class="span-2-of-2">
@@ -65,29 +65,35 @@
             </div>
             <hr>
             <div class="span-2-of-3">
-                <ul class="price-list">
+                <ul class="price-list" id="price-list">
                     <li>
-                        <prep>👕Dry Cleaning <span>₹200.00 </span></prep><button>Add item <ion-icon
+                        <p><span class="name-of-service">👕Dry Cleaning</span> <span>₹200.00 </span></p><button
+                            value="200.00" onclick="addServiceToTable(this)">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                     <li>
-                        <p>👔Wash & Fold<span>₹100.00 </span></p><button>Add item <ion-icon
+                        <p><span class="name-of-service">👔Wash & Fold</span><span>₹100.00 </span></p><button
+                            value="100.00" onclick="addServiceToTable(this)">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                     <li>
-                        <p>🥼Ironing <span>₹30.00 </span></p><button>Add item <ion-icon
+                        <p><span class="name-of-service">🥼Ironing</span> <span>₹30.00 </span></p><button value="30.00"
+                            onclick="addServiceToTable(this)">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                     <li>
-                        <p>👖Stain Removal <span>₹500.00 </span></p><button>Add item <ion-icon
+                        <p><span class="name-of-service">👖Stain Removal</span><span>₹500.00 </span></p><button
+                            value="500.00" onclick="addServiceToTable(this)">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                     <li>
-                        <p>🧣Leather & Suede Cleaning <span>₹999.00</span></p><button>Add item <ion-icon
+                        <p><span class="name-of-service">🧣Leather & Suede Cleaning</span><span>₹999.00</span></p>
+                        <button value="999.00" onclick="addServiceToTable(this)">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                     <li>
-                        <p>👗Wedding Dress Cleaning <span>₹2800.00 </span></p><button>Add item <ion-icon
+                        <p><span class="name-of-service">👗Wedding Dress Cleaning</span><span>₹2800.00 </span></p>
+                        <button value="2800.00" onclick="addServiceToTable(this)">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                 </ul>
@@ -111,27 +117,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Dry Cleaning</td>
-                            <td>₹200</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Ironing</td>
-                            <td>₹30</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Leather Cleaning</td>
-                            <td>₹999</td>
-                        </tr>
+
                     </tbody>
                     <tfoot>
-                        <tr>
-                            <td colspan="2">Total Amount</td>
-                            <td>₹ 1229.00</td>
-                        </tr>
+
                     </tfoot>
                 </table>
             </div>
@@ -139,23 +128,23 @@
                 <div class="row">
                     <h1>Book Now</h1>
                 </div>
-                <form action="">
+                <form action="" onsubmit="sendMail(event)" id="contact-form">
                     <div class="fullname">
                         <label for="name">Full Name</label><br>
-                        <input type="text" id="name" placeholder="John Doe">
+                        <input type="text" id="name" name="name" placeholder="John Doe">
                     </div>
                     <div class="contact-details">
                         <div class="email fullname">
                             <label for="email">Email </label><br>
-                            <input type="email" id="email" placeholder="mailid@gmail.com">
+                            <input type="email" id="email" name="email" placeholder="mailid@gmail.com">
                         </div>
                         <div class="phone fullname">
                             <label for="number">Phone Number</label><br>
-                            <input type="tel" id="phone" placeholder="0000000000">
+                            <input type="tel" id="phone" name="phone" placeholder="0000000000">
                         </div>
                     </div>
                     <div class="btn">
-                        <button>Book now</button>
+                        <button type="submit">Book now</button>
                     </div>
                 </form>
             </div>
@@ -238,12 +227,11 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
 
 
-
-
-
-
+    
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="./main.js"></script>

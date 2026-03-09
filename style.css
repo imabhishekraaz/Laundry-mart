@@ -104,6 +104,12 @@
     background-color: var(--primary-color);
     cursor: pointer;
 }
+.paragraph button a{
+    text-decoration: none;
+    color: #555;
+    font-size: 1rem;
+    font-weight: bold;
+}
 .achivement{
     height: 20vh;
     background-color: var(--primary-color);
@@ -157,7 +163,7 @@
     justify-content: space-between;
     margin: 0px 50px 0px 40px;
 }
-.price-list li span{
+.price-list li span:nth-child(2){
     color: blue;
     margin-left: 10px;
 }
@@ -222,7 +228,8 @@ tbody tr{
     margin: 5px 20px;
 }
 tbody tr td{
-    height: 30px;
+    height: auto;
+    padding: 5px;
     font-family: var(--primary-font);
     font-weight: 400;
 }
@@ -298,6 +305,7 @@ tfoot tr{
     font-family: var(--primary-font);
     font-weight: 600;
     color: #555;
+    cursor: pointer;
 }
 
 
