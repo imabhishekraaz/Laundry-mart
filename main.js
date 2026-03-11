@@ -13,10 +13,34 @@ function addDataToFooter(price) {
         </tr>
     `;
 }
-function addPngtotable(){
-    const emptyCart = document.getElementById("empty-cart");
-    if(tbodyEl.nodeValue){
-        emptyCart.style.display = "none"
+tbodyEl.addEventListener("click", (res) => {
+    console.log(res);
+})
+
+// Add the msg when the no data in the table form
+function addPngtotable() {
+    let emptyCart = document.getElementById("empty-cart");
+
+    if (!emptyCart) {
+        emptyCart = document.createElement("tr");
+        emptyCart.className = "empty-cart";
+        emptyCart.id = "empty-cart";
+
+        emptyCart.innerHTML = `
+            <td colspan="3">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                <p>No Items Added</p>
+                <p>Add Items to the cart from the service bar</p>
+            </td>
+        `;
+
+        tbodyEl.appendChild(emptyCart);
+    }
+
+    if (Object.keys(userOrderInfo).length == 0) {
+        emptyCart.style.display = "flex";
+    } else {
+        emptyCart.style.display = "none";
     }
 }
 
@@ -33,6 +57,7 @@ function addServiceToTable(btn) {
         btn.classList.remove("added");
         btn.innerHTML = `Add item <ion-icon name="add-circle-outline"></ion-icon>`;
         btn.style.color = "#1ab4ec";
+        addPngtotable();
         count--;
     } else {
         const row = document.createElement("tr");
@@ -41,43 +66,69 @@ function addServiceToTable(btn) {
             <td>${service}</td>
             <td>₹${price}</td>
         `;
+
         tbodyEl.appendChild(row);
+
         btn.row = row;
         totalPrice += price;
         count++;
         userOrderInfo[service] = price;
         addPngtotable();
+
         btn.classList.add("added");
         btn.innerHTML = `Remove item <ion-icon name="remove-circle-outline"></ion-icon>`;
         btn.style.color = "red";
     }
     addDataToFooter(totalPrice);
 };
-function sendMail(event) {
-    event.preventDefault();
 
-    const phone = document.getElementById("phone").value;
-    const names = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
+// Pop up msg after mail has been send successfully
+function popUpMessage(){
+    const contactDetailsElement = document.getElementById("popmsg");
+    const popUpMsg = document.createElement("p");
+    popUpMsg.innerHTML='<ion-icon name="checkmark-done-outline"></ion-icon>Mail has been send successfully';
+    contactDetailsElement.appendChild(popUpMsg);
+    setTimeout(()=>{
+        popUpMsg.innerText="";
+        contactDetailsElement.removeChild(popUpMsg);
+    },3000);
 
-    if (phone !== "" && names !== "" && email !== "") {
-        // send mail
-        console.log("Mail sent");
-    } else {
-        alert("Enter contact details");
-    }
 }
 
 
+// Reset the value after form has submited
+function resetValues() {
+    document.getElementById("phone").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.querySelector("tfoot").innerText = "";
+
+    for (let data in userOrderInfo) {
+        delete userOrderInfo[data];
+    }
+    
+    tbodyEl.innerHTML = "";
+    addPngtotable();
+    document.querySelectorAll("#btns").forEach((el) => {
+        el.innerHTML = `Add item <ion-icon name="add-circle-outline"></ion-icon>`;
+        el.style.color = "#1ab4ec";
+    })
+
+}
+
+
+// send a mail
 emailjs.init({
     publicKey: "SXlD_oiGsUzoiUdMd"
 });
 
 function sendMail(event) {
+    event.preventDefault();
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
 
-    if (!name || !email) {
+    if (!name || !email || !phone) {
         alert("Enter contact details");
         return;
     }
@@ -97,10 +148,14 @@ function sendMail(event) {
     emailjs.send("service_d3u7fe6", "template_1jluh99", templateParams)
         .then(
             (response) => {
+                popUpMessage();
                 console.log('SUCCESS!', response.status, response.text);
             },
             (error) => {
                 console.log('FAILED...', error);
             },
         );
+    resetValues();
 }
+
+addPngtotable();

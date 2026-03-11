@@ -222,18 +222,15 @@ tbody{
     overflow-y: auto;
 }
 
-.empty{
-    display: flex;
-    flex-direction: column;
-
-}
-tbody .empty-cart{
+.empty-cart{
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: block;
+}
+.empty-cart td{
+    border: none;
 }
  
 .empty-cart ion-icon{
@@ -243,7 +240,9 @@ tbody .empty-cart{
 }
 .empty-cart p{
     text-align: center;
-    margin: 5px;
+    margin-top: 5px;
+    font-size: 1rem;
+    font-family: var(--primary-font);
 }
 thead tr,
 tbody tr{
@@ -304,7 +303,17 @@ tfoot tr{
     /* margin-bottom: 10px; */
     padding-right: 20px;
 }
-
+#contact-form #popmsg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    padding-bottom: 10px;
+    font-size: 0.9rem;
+}
+.popmsg ion-icon{
+    margin-right: 5px;
+}
 .email,
 .phone{
     width: 40%;
@@ -521,6 +530,7 @@ tfoot tr{
 .price-list li button{
     width: 120px;
     height: 38px;
+    flex-wrap: nowrap;
    
 }
 .btn button{

@@ -69,32 +69,32 @@
                 <ul class="price-list" id="price-list">
                     <li>
                         <p><span class="name-of-service">👕Dry Cleaning</span> <span>₹200.00 </span></p><button
-                            value="200.00" onclick="addServiceToTable(this)">Add item <ion-icon
+                            value="200.00" onclick="addServiceToTable(this)" id="btns">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                     <li>
                         <p><span class="name-of-service">👔Wash & Fold</span><span>₹100.00 </span></p><button
-                            value="100.00" onclick="addServiceToTable(this)">Add item <ion-icon
+                            value="100.00" onclick="addServiceToTable(this)" id="btns">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                     <li>
                         <p><span class="name-of-service">🥼Ironing</span> <span>₹30.00 </span></p><button value="30.00"
-                            onclick="addServiceToTable(this)">Add item <ion-icon
+                            onclick="addServiceToTable(this)" id="btns">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                     <li>
                         <p><span class="name-of-service">👖Stain Removal</span><span>₹500.00 </span></p><button
-                            value="500.00" onclick="addServiceToTable(this)">Add item <ion-icon
+                            value="500.00" id="btns" onclick="addServiceToTable(this)">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                     <li>
                         <p><span class="name-of-service">🧣Leather & Suede Cleaning</span><span>₹999.00</span></p>
-                        <button value="999.00" onclick="addServiceToTable(this)">Add item <ion-icon
+                        <button value="999.00" id="btns" onclick="addServiceToTable(this)">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                     <li>
                         <p><span class="name-of-service">👗Wedding Dress Cleaning</span><span>₹2800.00 </span></p>
-                        <button value="2800.00" onclick="addServiceToTable(this)">Add item <ion-icon
+                        <button value="2800.00" id="btns" onclick="addServiceToTable(this)">Add item <ion-icon
                                 name="add-circle-outline"></ion-icon></button>
                     </li>
                 </ul>
@@ -118,17 +118,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="empty-cart" id="empty-cart">
-                            <td colspan="3" >
-                                <ion-icon name="alert-circle-outline"></ion-icon>
-                                <p>No Items Added</p>
-                                <p>Add Items to the cart from the service bar</p>
-                            </td>
-                        </tr>
-                        </tbody>
-                        <tfoot>
+                    </tbody>
+                    <tfoot>
 
-                        </tfoot>
+                    </tfoot>
                 </table>
             </div>
             <div class="list service-price span-2-of-2">
@@ -140,7 +133,7 @@
                         <label for="name">Full Name</label><br>
                         <input type="text" id="name" name="name" placeholder="John Doe">
                     </div>
-                    <div class="contact-details">
+                    <div class="contact-details" id="contact-details">
                         <div class="email fullname">
                             <label for="email">Email </label><br>
                             <input type="email" id="email" name="email" placeholder="mailid@gmail.com">
@@ -151,7 +144,9 @@
                         </div>
                     </div>
                     <div class="btn">
-                        <button type="submit">Book now</button>
+                        <button type="submit" onsubmit="sendMail(event)">Book now</button>
+                    </div>
+                    <div id="popmsg">
                     </div>
                 </form>
             </div>
