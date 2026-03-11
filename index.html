@@ -33,7 +33,8 @@
                 </h1>
                 <p>From premium dry cleaning to swift wash and fold, we deliver care and convenience. Schedule a pickup
                     and rediscover the freshness of your clothes today!</p>
-                <button><ion-icon name="calendar-outline"></ion-icon><a href="#service">Book a Service Today!</a></button>
+                <button><ion-icon name="calendar-outline"></ion-icon><a href="#service">Book a Service
+                        Today!</a></button>
             </div>
         </div>
         <div class="span-2-of-2">
@@ -117,11 +118,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr class="empty-cart" id="empty-cart">
+                            <td colspan="3" >
+                                <ion-icon name="alert-circle-outline"></ion-icon>
+                                <p>No Items Added</p>
+                                <p>Add Items to the cart from the service bar</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
 
-                    </tbody>
-                    <tfoot>
-
-                    </tfoot>
+                        </tfoot>
                 </table>
             </div>
             <div class="list service-price span-2-of-2">
@@ -228,10 +235,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    
-
-
-    
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="./main.js"></script>
