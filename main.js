@@ -133,6 +133,19 @@ function threeLinks(){
     
 
 }
+// add the login page when click on the username button on the top right
+function loginPage(){
+
+    const loginPop = document.getElementById("login-form-1");
+
+    if(!loginPop.classList.contains("added")){
+        loginPop.classList.add("added");
+        loginPop.style.display="block";
+    }else{
+        loginPop.classList.remove("added");
+        loginPop.style.display="none";
+    }
+}
 
 // Pop up msg after mail has been send successfully
 function popUpMessage(){

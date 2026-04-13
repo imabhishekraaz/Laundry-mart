@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 04</title>
+    <title>Laundry Mart - Book a Service at your fingers</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -23,9 +23,9 @@
                 </nav>
             </div>
             <div class="username">
-                <button>username</button>
+                <button id="usernamebtn" onclick="loginPage()">username</button>
             </div>
-        </div>
+            
 <!-- add the nav links for the mobile previews -->
         <div class="second-header" id="second-header">
             <div class="three-line">
@@ -46,6 +46,21 @@
             <h2 onclick="threeLinks()">A</h2>
         </div>
     </header>
+    <!-- login page  -->
+    <div id="login-form-1" class="login-form">
+        <form action="" class="lform">
+            <h2>Login</h2>
+                <div class="email-input">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter Email">
+                </div>
+                <div class="password-input">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter password">
+                </div>
+                    <button>Login</button>
+        </form>
+    </div>
     <section id="home">
         <div class="span-1-of-2">
             <div class="paragraph">
