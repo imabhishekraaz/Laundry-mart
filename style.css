@@ -14,11 +14,17 @@
     --margin-bottom:20px;
 }
 /* header section */
-.header{
+.first-header{
     display: flex;
     justify-content: space-between;
     padding: 20px 8%;
     align-items: center;
+}
+.second-header{
+    display: none;
+}
+.three-lines{
+    display: none;
 }
 .logo h1{
     font-size: 2.2rem;
@@ -70,7 +76,7 @@
 /* home section  */
 #home{
     display: flex;
-    height: 70vh;
+    height: 80dvh;
     justify-content: space-evenly;
    padding: 0px 150px;
 }
@@ -163,13 +169,15 @@
 }
 .price-list li{
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    margin: 0px 50px 0px 40px;
+    margin: 0px 15px 0px 25px;
 }
 .price-list li span:nth-child(2){
     color: blue;
     margin-left: 10px;
 }
+
 .price-list li button{
     padding: 10px;
     width: 25%;
@@ -195,7 +203,7 @@
 /* table ------------------> */
 .table-1{
     width: 100%;
-    height: 100%;
+    max-height: 100%;
     display: grid;
     grid-template-rows: 25% 10% 50% 15%;
     text-align: left;
@@ -205,10 +213,12 @@
 }
 th,td{
     width: auto;
+    max-height:30px;
     border-bottom: 1px solid #eee;
 }
 .table-1 caption{
     font-size: 2rem;
+    max-height: 5rem;
     font-weight: 700;
     color: #555;
     font-family: var(--primary-font);
@@ -217,11 +227,13 @@ th,td{
 thead{
     background-color: #eee;
     width: 100%;
+    max-height: 100%;
     /* padding: 5px 10px 0px 15px; */
     font-family: var(--primary-font);
-    
 }
 tbody{
+    height: 10rem;
+    max-height: 10rem;
     overflow-y: auto;
 }
 
@@ -254,7 +266,7 @@ tbody tr{
     margin: 5px 20px;
 }
 tbody tr td{
-    height: auto;
+    height: 30px;
     padding: 5px;
     font-family: var(--primary-font);
     font-weight: 400;
@@ -453,7 +465,81 @@ tfoot tr{
 /* make a responsive */
 
 @media (max-width:720px){
-    
+    .first-header{
+        display: none;
+    }
+    .second-header{
+        width: 100%;
+        position: fixed;
+        display: none;
+        animation: threeLine 0.3s linear; 
+        transform: translatex(-5px); 
+    }
+    @keyframes threeLine {
+        0%{
+            transform: translatex(220px);
+        }100%{
+            transform: translatex(-5px);
+        }
+    }
+    .three-line{
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        right: 0px; 
+        padding:10px 10px 0px 0px;
+        z-index: 99;   
+       
+    }
+    @scope(.three-line){
+        h2{
+            padding: 5px 20px 0px;
+            color: white;
+            text-align: right;
+        }
+    }
+    .three-lines{
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px 20px 10px 40px;
+        display: flex;
+        justify-items: center;
+
+}   
+    @scope(.three-lines){
+        h1{
+            font-family: var(--primary-font);
+            color: #555;
+            font-size: 1.6rem;
+        }
+        h2{
+            text-align: right;
+            padding: 5px 20px 0px;
+            color: #555;
+            margin: 0;
+        }
+    }
+    .links-container{
+        display: flex;
+        height: 100vh;
+        width: 60%;
+        position: absolute;
+        background-color: var(--primary-color);
+        margin-left: 40%;
+    }
+    .links-second{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin: 50px;
+    }
+    .links-second a{
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-family: var(--primary-font);
+        font-weight: var(--secondar--fontWeight);
+        color: white;
+    }
     .links a{
         display: none;
     }
@@ -520,10 +606,15 @@ tfoot tr{
     justify-content: space-between; 
  }
 .price-list{
-    display: flex;
-    flex-direction: column;
+    display: gid;
+    grid-template-columns: 1fr 1fr;
     margin: 30px 0px;
     font-family: var(--primary-font);
+    
+}
+.price-list li span:nth-child(1){
+    width: 50%;
+    text-align: justify;
     
 }
 .price-list li span:nth-child(2){
@@ -531,11 +622,19 @@ tfoot tr{
     margin-top: 5px;
 }
 .price-list li button{
-    width: 120px;
+    width: 40%;
     height: 38px;
-    flex-wrap: nowrap;
-   
+    padding: 10px;
+    background-color: rgba(0, 128, 0,0.1);
+    border: none;
+    border-radius: 10px;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    column-wrap: nowrap;
 }
+
 .btn button{
     margin-top: 15px;
 }

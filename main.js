@@ -13,11 +13,9 @@ function addDataToFooter(price) {
         </tr>
     `;
 }
-tbodyEl.addEventListener("click", (res) => {
-    console.log(res);
-})
 
-// Add the msg when the no data in the table form
+
+// Add the message when the no data in the table
 function addPngtotable() {
     let emptyCart = document.getElementById("empty-cart");
 
@@ -44,12 +42,49 @@ function addPngtotable() {
     }
 }
 
-//add data to tbody 
+// add data to tbody 
+// function addServiceToTable(btn) {
+//     const price = Number(btn.value);
+//     const service = btn.parentElement.querySelector(".name-of-service").innerText;
+
+//     if (btn.classList.contains("added")) {
+//         totalPrice -= price;
+//         btn.row.remove();
+//         delete userOrderInfo[service];
+//         btn.classList.remove("added");
+//         btn.innerHTML = `Add item <ion-icon name="add-circle-outline"></ion-icon>`;
+//         btn.style.color = "#1ab4ec";
+//         addPngtotable();
+//         count--;
+//     } else {
+//         const row = document.createElement("tr");
+//         row.innerHTML += `
+//             <td>${count}</td>
+//             <td>${service}</td>
+//             <td>₹${price}</td>
+//         `;
+
+//         tbodyEl.appendChild(row);
+
+//         btn.row = row;
+//         totalPrice += price;
+//         count++;
+//         userOrderInfo[service] = price;
+//         addPngtotable();
+
+//         btn.classList.add("added");
+//         btn.innerHTML = `Remove item <ion-icon name="remove-circle-outline"></ion-icon>`;
+//         btn.style.color = "red";
+//     }
+//     addDataToFooter(totalPrice);
+// };
 function addServiceToTable(btn) {
-    const emptyCart = document.getElementById("empty-cart");
     const price = Number(btn.value);
     const service = btn.parentElement.querySelector(".name-of-service").innerText;
 
+    // Add the service when the use click on the add items
+    userOrderInfo[service] = price;
+    // Remove the items on the table when the user click on remove item
     if (btn.classList.contains("added")) {
         totalPrice -= price;
         btn.row.remove();
@@ -61,18 +96,20 @@ function addServiceToTable(btn) {
         count--;
     } else {
         const row = document.createElement("tr");
-        row.innerHTML += `
-            <td>${count}</td>
-            <td>${service}</td>
-            <td>₹${price}</td>
-        `;
-
-        tbodyEl.appendChild(row);
-
+        
+        for(let value in userOrderInfo){
+            row.innerHTML += `
+                <td>${count}</td>
+                <td>${value}</td>
+                <td>₹${userOrderInfo[value]}</td>
+            `;
+            tbodyEl.appendChild(row);
+            count++;
+        }
         btn.row = row;
         totalPrice += price;
-        count++;
-        userOrderInfo[service] = price;
+        
+        // userOrderInfo[service] = price;
         addPngtotable();
 
         btn.classList.add("added");
@@ -81,6 +118,21 @@ function addServiceToTable(btn) {
     }
     addDataToFooter(totalPrice);
 };
+// Add the nav links when the user click on the three links 
+function threeLinks(){
+    // fetch both elements to change the display properties 
+    const navLinksOnShow = document.getElementById("second-header");
+
+    if(!navLinksOnShow.classList.contains("#added")){
+        navLinksOnShow.classList.add("#added");
+        navLinksOnShow.style.display="block";
+    }else{
+        navLinksOnShow.classList.remove("#added");
+        navLinksOnShow.style.display="none";
+    }
+    
+
+}
 
 // Pop up msg after mail has been send successfully
 function popUpMessage(){
@@ -115,8 +167,6 @@ function resetValues() {
     })
 
 }
-
-
 // send a mail
 emailjs.init({
     publicKey: "SXlD_oiGsUzoiUdMd"
@@ -157,5 +207,4 @@ function sendMail(event) {
         );
     resetValues();
 }
-
 addPngtotable();
