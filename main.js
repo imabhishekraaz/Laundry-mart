@@ -3,6 +3,7 @@ const tfootEl = document.querySelector("tfoot");
 let count = 1;
 let totalPrice = 0;
 let userOrderInfo = {};
+var userOrder = [];
 
 //add data to the tfoot
 function addDataToFooter(price) {
@@ -43,52 +44,20 @@ function addPngtotable() {
 }
 
 // add data to tbody 
-// function addServiceToTable(btn) {
-//     const price = Number(btn.value);
-//     const service = btn.parentElement.querySelector(".name-of-service").innerText;
-
-//     if (btn.classList.contains("added")) {
-//         totalPrice -= price;
-//         btn.row.remove();
-//         delete userOrderInfo[service];
-//         btn.classList.remove("added");
-//         btn.innerHTML = `Add item <ion-icon name="add-circle-outline"></ion-icon>`;
-//         btn.style.color = "#1ab4ec";
-//         addPngtotable();
-//         count--;
-//     } else {
-//         const row = document.createElement("tr");
-//         row.innerHTML += `
-//             <td>${count}</td>
-//             <td>${service}</td>
-//             <td>₹${price}</td>
-//         `;
-
-//         tbodyEl.appendChild(row);
-
-//         btn.row = row;
-//         totalPrice += price;
-//         count++;
-//         userOrderInfo[service] = price;
-//         addPngtotable();
-
-//         btn.classList.add("added");
-//         btn.innerHTML = `Remove item <ion-icon name="remove-circle-outline"></ion-icon>`;
-//         btn.style.color = "red";
-//     }
-//     addDataToFooter(totalPrice);
-// };
 function addServiceToTable(btn) {
     const price = Number(btn.value);
     const service = btn.parentElement.querySelector(".name-of-service").innerText;
-
-    // Add the service when the use click on the add items
-    userOrderInfo[service] = price;
-    // Remove the items on the table when the user click on remove item
+    // console.log(services);
+    
+    // Add data in the array
+    userOrder.push({service:service,price:price})
+    
+    
+    
     if (btn.classList.contains("added")) {
         totalPrice -= price;
         btn.row.remove();
-        delete userOrderInfo[service];
+        delete userOrderInfo[service][service];
         btn.classList.remove("added");
         btn.innerHTML = `Add item <ion-icon name="add-circle-outline"></ion-icon>`;
         btn.style.color = "#1ab4ec";
@@ -96,19 +65,19 @@ function addServiceToTable(btn) {
         count--;
     } else {
         const row = document.createElement("tr");
-        for(let value in userOrderInfo){
-            row.innerHTML += `
-                <td>${count}</td>
-                <td>${value}</td>
-                <td>₹${userOrderInfo[value]}</td>
-            `;
-            tbodyEl.appendChild(row);
-            count++;
-        }
+        // for()
+        row.innerHTML += `
+            <td>${count}</td>
+            <td>${service}</td>
+            <td>₹${price}</td>
+        `;
+
+        tbodyEl.appendChild(row);
+
         btn.row = row;
         totalPrice += price;
-        
-        // userOrderInfo[service] = price;
+        count++;
+        userOrderInfo[service] = price;
         addPngtotable();
 
         btn.classList.add("added");
