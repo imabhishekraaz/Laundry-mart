@@ -96,7 +96,6 @@ function addServiceToTable(btn) {
         count--;
     } else {
         const row = document.createElement("tr");
-        
         for(let value in userOrderInfo){
             row.innerHTML += `
                 <td>${count}</td>
@@ -118,21 +117,33 @@ function addServiceToTable(btn) {
     }
     addDataToFooter(totalPrice);
 };
+
+// when clicked on the three button then hide the hamburger icon in the app
+function HamburgerIcon(btn){
+    const humberger = document.getElementById("humberger");
+    if(btn.classList.contains("#added")){
+        humberger.style.display="none";
+    }else{
+        humberger.style.display="block";
+    }
+
+}
 // Add the nav links when the user click on the three links 
-function threeLinks(){
+function threeLines(){
     // fetch both elements to change the display properties 
     const navLinksOnShow = document.getElementById("second-header");
 
     if(!navLinksOnShow.classList.contains("#added")){
         navLinksOnShow.classList.add("#added");
         navLinksOnShow.style.display="block";
+        HamburgerIcon(navLinksOnShow);
     }else{
         navLinksOnShow.classList.remove("#added");
         navLinksOnShow.style.display="none";
+        HamburgerIcon(navLinksOnShow);
     }
-    
-
 }
+
 // add the login page when click on the username button on the top right
 function loginPage(){
 
